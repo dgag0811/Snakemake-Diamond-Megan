@@ -1,5 +1,3 @@
-# Snakemake-Diamond-Megan
-
 Reference research papers: 
 
 1.“Fast and sensitive protein alignment using DIAMOND”, Benjamin Buchfink et al, Nature, 2015.
@@ -42,9 +40,13 @@ Reference : https://gitlab.com/hjruscheweyh/megan_snakemake/blob/master/daa2rma/
 	a. Reference : https://github.com/bbuchfink/diamond
 	
 	b.$cd metagenome_analysis/data/analysis1/snakemake-tutorial/test1
-	Install Diamond binary file (just binary file is enough in case of diamond)
 	
-	c.Create the nr.dmnd reference file after following all the instructions of github
+	c.Install Diamond binary file (just binary file is enough in case of diamond)
+		1. Go to https://github.com/bbuchfink/diamond
+		2. $wget http://github.com/bbuchfink/diamond/releases/download/v0.9.22/diamond-linux64.tar.gz
+		3. $tar xzf diamond-linux64.tar.gz
+		4. $wget ftp://ftp.ncbi.nlm.nih.gov/blast/db/FASTA/nr.gz
+		5. diamond makedb --in nr.faa -d nr
 	
 	d.Install ATOM editor for creating ‘Snakefile’ through which the program is executed.
 	
@@ -64,11 +66,18 @@ Reference : https://gitlab.com/hjruscheweyh/megan_snakemake/blob/master/daa2rma/
 	
 	d. Go to the megan directory and use the tool daa2rma
 	
-	$cd metagenome_analysis/data/analysis1/snakemake-tutorial 
-	$snakemake {sample file}.rma
+	e. $cd ~/metagenome_analysis/data/analysis1/snakemake-tutorial/test1
+		Download and unzip 'Protein accession to NCBI-taxonomy mapping file (           'test1/megan/tools/daa2rma --in {input} --out {output} --acc2taxa test1/prot_acc2tax-Mar2018X1.abin --acc2eggnog test1/acc2eggnog-Oct2016X.abin --acc2seed test1/acc2seed-May2015XX.abin --acc2interpro2go test1/acc2interpro-Nov2016XX.abin'
+	)', 'Protein accession to eggNOG mapping file (acc2eggnog-Oct2016X.abin)', 'Protein accession to SEED mapping file acc2seed-May2015XX.abin)' 
+		and 'Protein accession to InterPro mapping file (acc2interpro-Nov2016XX.abin)' from http://ab.inf.uni-tuebingen.de/data/software/megan6/download/welcome.html
 	
-#To use the Snakemake workflow, use the command snakemake (output file name). In case of more than one file use snakemake {A,B}.rma file. 
-(Reference : https://snakemake.readthedocs.io/en/stable/tutorial/basics.html)
+	f. $cd ~/metagenome_analysis/data/analysis1/snakemake-tutorial
+		put your Snakefile over here
+	
+	g. $snakemake {sample file}.rma
+	
+	#To use the Snakemake workflow, use the command snakemake (output file name). In case of more than one file use snakemake {A,B}.rma file. 
+	(Reference : https://snakemake.readthedocs.io/en/stable/tutorial/basics.html)
 
 
 
